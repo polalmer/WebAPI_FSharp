@@ -10,11 +10,13 @@ module Day1 =
                 line
                 |> Seq.filter System.Char.IsDigit
                 |> Seq.head
+                |> string
 
             let last = 
                 line
                 |> Seq.filter System.Char.IsDigit
                 |> Seq.last
+                |> string
 
             let number = 
                 (first + last)
