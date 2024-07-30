@@ -1,5 +1,7 @@
 namespace WebAPI_FSharp
 #nowarn "20"
+open System.Text.Json.Serialization
+
 open Microsoft.AspNetCore.Builder
 open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Hosting
@@ -12,7 +14,8 @@ module Program =
 
         let builder = WebApplication.CreateBuilder(args)
 
-        builder.Services.AddControllers()
+        builder.Services.AddControllers().AddJsonOptions(fun options -> 
+            options.JsonSerializerOptions.Converters.Add(JsonStringEnumConverter()));
         
         builder.Services.AddEndpointsApiExplorer()
         builder.Services.AddSwaggerGen()
