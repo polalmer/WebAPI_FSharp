@@ -1,9 +1,26 @@
-﻿namespace WebAPI_FSharp.Day1
+﻿namespace WebAPI_FSharp.Days
 
 module Day1 =
+
     let Part1(input:string[]):string =
-       let mutable text = ""
-       for line in input do
-            text <- text + line
-       text
+        let mutable result = 0 
+        for line in input do
+
+            let first = 
+                line
+                |> Seq.filter System.Char.IsDigit
+                |> Seq.head
+
+            let last = 
+                line
+                |> Seq.filter System.Char.IsDigit
+                |> Seq.last
+
+            let number = 
+                (first + last)
+                |> int
+
+            result <- result + number
+        result|>string
+            
         

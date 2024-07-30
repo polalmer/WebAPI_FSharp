@@ -3,7 +3,7 @@
 open Microsoft.AspNetCore.Mvc
 open Microsoft.Extensions.Logging
 open WebAPI_FSharp
-open WebAPI_FSharp.Day1
+open WebAPI_FSharp.Days
 
 type DataType = 
     |Test = 1
