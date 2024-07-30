@@ -3,26 +3,26 @@
 module Day1 =
 
     let Part1(input:string[]):string =
-        let mutable result = 0 
-        for line in input do
+        input
+            |> 
+            Array.fold (fun acc line ->
+                let first = 
+                    line
+                    |> Seq.filter System.Char.IsDigit
+                    |> Seq.head
+                    |> string
 
-            let first = 
-                line
-                |> Seq.filter System.Char.IsDigit
-                |> Seq.head
-                |> string
+                let last = 
+                    line
+                    |> Seq.filter System.Char.IsDigit
+                    |> Seq.last
+                    |> string
 
-            let last = 
-                line
-                |> Seq.filter System.Char.IsDigit
-                |> Seq.last
-                |> string
+                let number = 
+                    (first + last)
+                    |> int
 
-            let number = 
-                (first + last)
-                |> int
-
-            result <- result + number
-        result|>string
+                acc + number) 0
+        |> string
             
         
